@@ -1,0 +1,31 @@
+library(tidyverse)
+
+survey<-read.csv("surveyF21.csv")
+
+
+ggplot(survey,aes(x=R, y=Coding))+geom_point()
+
+ggplot(survey, aes(x=R, y=Coding)) + geom_point(aes(color=X4110))
+
+
+ggplot(survey,aes(x=R,y=ggplot))+geom_point(color="hotpink",aes(shape=X4110,size=Vi))
+
+
+#alpha : transparency 
+# alpha 1 -> Clear 
+# Alpha 0 -> Transparent 
+ggplot(survey,aes(x=R,y=ggplot))+geom_point(size=5,alpha=.3,color="hotpink",aes(shape=X4110,size=Vi))
+
+
+ggplot(survey,aes(x=Year))+geom_bar()
+ggplot(survey, aes(x=Analytics, y=R)) + geom_bar(stat="summary",fun=("mean"),aes(color=X4110))
+
+ggplot(survey, aes(x=Analytics, y=R)) + geom_bar(stat="summary",fun=("mean"),aes(fill=X4110))
+
+ggplot(survey, aes(x=Analytics, y=R)) + geom_bar(stat="summary",fun=("mean"),aes(fill=X4110),position="dodge")
+
+
+ggplot(survey, aes(x=Excel, y=Coding)) +geom_point(size=5,alpha=.3,color="Blue")
+
+
+

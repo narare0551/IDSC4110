@@ -1,0 +1,76 @@
+# ******************************************************************************
+# *** Introduction to R: Variables and Data Types ******************************
+# ******************************************************************************
+
+# ******************************************************************************
+# Slide#7: R Statements
+# ******************************************************************************
+# Principle is $15,000, interest rate is 5%, term is 5 years
+
+
+# ******************************************************************************
+# Slide#8: Numeric Data Types
+# ******************************************************************************
+#Assign financial values to numeric input variables
+
+
+
+
+
+# Creating a formula and assigning the result to the numeric output variable
+
+# Displaying the value of the output variable
+
+
+# ******************************************************************************
+# Slide#9: Character Data Type
+# ******************************************************************************
+# Create a character output message variable
+
+
+
+# As a character variable, the message has a length
+
+# Other useful character functions
+
+# Displaying the message and the value of the monthly payment
+
+
+# ******************************************************************************
+# Slide#10: Dates Data Types
+# ******************************************************************************
+# The first payment date will be due on 5/10/2030
+
+
+# The first payment is of Date data type
+
+# The actual value is number of days since 1/1/1970
+
+# The actual payment was made on 5/2/2030 
+
+
+# The actual payment date/time is of POSIXct data type
+
+# The actual value is number of seconds since 1/1/1970
+
+
+# ******************************************************************************
+# Slide#11: Logical Data Type
+# ******************************************************************************
+# Logical data type has only 2 values: TRUE or FALSE
+
+
+# Logical data is used with relational operators
+
+
+# Logical data is used with logical operators
+
+
+
+# ******************************************************************************
+# Slide#12: R Packages
+# ******************************************************************************
+# Loading optiRum package previously installed
+
+# Using PMT function with our parameters
+

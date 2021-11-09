@@ -1,0 +1,40 @@
+[
+  {
+    "Ticker": ["TGT"],
+    "Price": [256.57],
+    "Info": ["Target Corporation", "Minneapolis"],
+    "HistPrice": [
+      {
+        "Period": "6M",
+        "Price": 183.58
+      },
+      {
+        "Period": "1Y",
+        "Price": 125.88
+      },
+      {
+        "Period": "5Y",
+        "Price": 70.19
+      }
+    ]
+  },
+  {
+    "Ticker": ["BBY"],
+    "Price": [114.58],
+    "Info": ["Best Buy Co., Inc.", "Richfield"],
+    "HistPrice": [
+      {
+        "Period": "6M",
+        "Price": 110.32
+      },
+      {
+        "Period": "1Y",
+        "Price": 102.9
+      },
+      {
+        "Period": "5Y",
+        "Price": 38.18
+      }
+    ]
+  }
+]

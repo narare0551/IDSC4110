@@ -1,0 +1,58 @@
+[
+  {
+    "School": ["Illinois"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Indiana"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Soccer", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Iowa"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Maryland"],
+    "Men_Sports": ["Baseball", "Basketball", "Football", "Golf", "Lacrosse", "Soccer", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Michigan"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Ice Hockey", "Lacrosse", "Soccer", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Michigan State"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Ice Hockey", "Soccer", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Minnesota"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Ice Hockey", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Nebraska"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Northwestern"],
+    "Men_Sports": ["Baseball", "Basketball", "Football", "Golf", "Soccer", "Swimming & Diving", "Tennis", "Wrestling"]
+  },
+  {
+    "School": ["Ohio State"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Ice Hockey", "Lacrosse", "Soccer", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Penn State"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Gymnastics", "Ice Hockey", "Lacrosse", "Soccer", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Purdue"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Rutgers"],
+    "Men_Sports": ["Baseball", "Basketball", "Cross Country", "Football", "Golf", "Lacrosse", "Soccer", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  },
+  {
+    "School": ["Wisconsin"],
+    "Men_Sports": ["Basketball", "Cross Country", "Football", "Golf", "Ice Hockey", "Soccer", "Swimming & Diving", "Tennis", "Track & Field (indoor)", "Track & Field (outdoor)", "Wrestling"]
+  }
+]

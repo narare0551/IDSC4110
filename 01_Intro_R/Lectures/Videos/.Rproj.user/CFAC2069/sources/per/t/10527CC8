@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1627317264155.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4060591259",
+    "id" : "10527CC8",
+    "lastKnownWriteTime" : 1594674182,
+    "last_content_update" : 1594674182,
+    "path" : "C:/Users/Vedran/Google Drive/product/IDSC_4110_Data_Eng/IDSC_4110/01_Intro_R/Lectures/Videos/Intro2_R_Vectors.r",
+    "project_path" : "Intro2_R_Vectors.r",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

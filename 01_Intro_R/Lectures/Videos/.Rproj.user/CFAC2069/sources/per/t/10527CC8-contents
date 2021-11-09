@@ -1,0 +1,112 @@
+# ******************************************************************************
+# *** Introduction to R: Vectors ***********************************************
+# ******************************************************************************
+
+# ******************************************************************************
+# Slide#3: Vectors in R
+# ******************************************************************************
+# Vectors are created with a c (combine) function
+# Create vector of interest rates on 10 loans
+# 0.07, 0.075, 0.07, 0.065, 0.077, 0.0625, 0.065, 0.0775, 0.0575, 0.0575
+
+
+# ******************************************************************************
+# Slide#4: Vector operations - Algebraic operators
+# ******************************************************************************
+# Multiply vector by 100 to get rates as percentages
+
+# Add 1% to each of the 10 rates
+
+# Adding two vectors of the same size
+
+
+# ******************************************************************************
+# Slide#5: Vector operations - Careful when vectors are not of the same size
+# ******************************************************************************
+# Determine vector length
+
+
+
+# Careful when vectors are not of the same length
+rate_inc <- c(0, 0.01, 0.02)
+
+
+# ******************************************************************************
+# Slide#6: Vector operations - Logical operators
+# ******************************************************************************
+# See which loans are under 7%
+
+
+# Confirm all the loans experienced rate increase
+
+
+
+
+# ******************************************************************************
+# Slide#7: Vector operations - Logical (cont.) - Character vectors
+# ******************************************************************************
+# Confirm some loans experienced rate increase
+
+
+# An example of a character vector
+#"Mortg", "Mortg", "Mortg", "Car", "Car", "Mortg", "Other", "Car", "Mortg", "Mortg"
+
+
+# ******************************************************************************
+# Slide#8: Vector Elements - Access methods and naming
+# ******************************************************************************
+# Accessing first 5 elements
+
+
+# Accessing just elements 1 and 5
+
+
+# It can get weird, accessing just mortgage loan rates
+
+
+# Using one vector to name another
+
+
+# ******************************************************************************
+# Slide#9: Factor Vectors
+# ******************************************************************************
+# Factor vectors are categorical variables using in analytics all the time
+
+
+# Each of the 3 factors is represented by a unique integer
+
+
+# ******************************************************************************
+# Slide#10: Missing Data - NA or Not Available
+# ******************************************************************************
+# There are 2 types of missing data in R
+# NA stands for Not Available and truly represents missing data
+# This data may (or may not) become available later
+# The NA value simply becomes the value used in lieu of missing information
+# Let's assume the 7th loan of type Other has missing interest rate and categorization
+# 0.07, 0.075, 0.07, 0.065, 0.077, 0.0625, NA, 0.0775, 0.0575, 0.0575
+
+
+#"Mortg", "Mortg", "Mortg", "Car", "Car", "Mortg", NA, "Car", "Mortg", "Mortg"
+
+
+
+# ******************************************************************************
+# Slide#11: Missing Data - NULL value
+# ******************************************************************************
+# On the other hand, NULL represents the absence of value
+
+
+# ******************************************************************************
+# Slide#12: Using Pipes in R
+# ******************************************************************************
+# Pipes are a new way of calling functions in a more natural manner
+# Install magrittr package first
+
+
+# Traditional vs. piped function calls
+
+
+# Nesting of functions is simpler and more efficient
+
+

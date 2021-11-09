@@ -1,0 +1,27 @@
+{
+    "id": "2FF396A7",
+    "path": "C:/idsc4110/IDSC_4110/02_Data_Struct/Lectures/Videos/Struct1_DataFrames.r",
+    "project_path": "Struct1_DataFrames.r",
+    "type": "r_source",
+    "hash": "1096852247",
+    "contents": "",
+    "dirty": false,
+    "created": 1635801077043.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "32,13",
+        "scrollLine": "19",
+        "notebook_format": "pdf_document"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1635869430,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1635869430511,
+    "read_only": false,
+    "read_only_alternatives": []
+}

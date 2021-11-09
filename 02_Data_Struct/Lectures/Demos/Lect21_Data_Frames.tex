@@ -1,0 +1,601 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Lect21\_Data\_Frames.r},
+  pdfauthor={narae},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Lect21\_Data\_Frames.r}
+\author{narae}
+\date{2021-11-02}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ******************************************************************************}
+\CommentTok{\# *** Introduction to R: Data Frames *******************************************}
+\CommentTok{\# ******************************************************************************}
+
+\CommentTok{\# ******************************************************************************}
+\CommentTok{\# *** Exercise 01: Big Ten Data Frame Construction}
+\CommentTok{\# Create a Big Ten data frame using the following attributes, most of which can}
+\CommentTok{\# be found in the lecture file on vectors: school (short name of the university), }
+\CommentTok{\# region (midwest or northeast), wn\_rank (World News rank), grad\_rate (graduation }
+\CommentTok{\# rate), enroll (annual total enrollment given below), sat (SAT composite score), }
+\CommentTok{\# act (ACT composite score), acceptance rate and hs\_gpa (both given below as well).}
+\CommentTok{\# Name the data frame columns appropriately and show the size, structure, the}
+\CommentTok{\# first and last 5 schools, as well as the summary.}
+\CommentTok{\# Illinois  Indiana   Iowa    Maryland  Michigan  Michigan State Minnesota      }
+\CommentTok{\#  48216    43710     32166   40521     46002         50019         51848}
+\CommentTok{\#   0.62    0.77      0.83    0.47  0.23          0.78       0.52   }
+\CommentTok{\#   3.79    3.62      3.61    3.75  3.82          3.62       3.75   }
+\CommentTok{\# Nebraska  Northwestern    Ohio State  Penn State  Purdue  Rutgers Wisconsin }
+\CommentTok{\# 26079         22008           59837         47119     42699   49577   42977}
+\CommentTok{\# 0.8           0.08            0.52          0.56      0.58    0.6     0.52}
+\CommentTok{\# 3.57          3.92            3.76          3.59      3.7     3.3     3.84            }
+\CommentTok{\# ******************************************************************************}
+\NormalTok{school }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Illinois"}\NormalTok{,}\StringTok{"Indiana"}\NormalTok{,}\StringTok{"Iowa"}\NormalTok{,}\StringTok{"Maryland"}\NormalTok{,}\StringTok{"Michigan"}\NormalTok{,}\StringTok{"Michigan State"}\NormalTok{,}
+            \StringTok{"Minnesota"}\NormalTok{,}\StringTok{"Nebraska"}\NormalTok{,}\StringTok{"Northwestern"}\NormalTok{,}\StringTok{"Ohio State"}\NormalTok{,}\StringTok{"Penn State"}\NormalTok{,}
+            \StringTok{"Purdue"}\NormalTok{,}\StringTok{"Rutgers"}\NormalTok{,}\StringTok{"Wisconsin"}\NormalTok{)}
+\NormalTok{region }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"MDW"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"NE"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}
+            \StringTok{"MDW"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"NE"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{,}\StringTok{"NE"}\NormalTok{,}\StringTok{"MDW"}\NormalTok{)}
+\NormalTok{wn\_rank }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"High"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"High"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}
+             \StringTok{"Low"}\NormalTok{,}\StringTok{"Top10"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"Mod"}\NormalTok{,}\StringTok{"High"}\NormalTok{)}
+\NormalTok{grad\_rate }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.85}\NormalTok{, }\FloatTok{0.77}\NormalTok{, }\FloatTok{0.74}\NormalTok{, }\FloatTok{0.85}\NormalTok{, }\FloatTok{0.92}\NormalTok{, }\FloatTok{0.80}\NormalTok{, }\FloatTok{0.80}\NormalTok{, }
+               \FloatTok{0.68}\NormalTok{, }\FloatTok{0.94}\NormalTok{, }\FloatTok{0.83}\NormalTok{, }\FloatTok{0.85}\NormalTok{, }\FloatTok{0.78}\NormalTok{, }\FloatTok{0.80}\NormalTok{, }\FloatTok{0.87}\NormalTok{)}
+\NormalTok{enroll }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{48216}\NormalTok{, }\DecValTok{43710}\NormalTok{, }\DecValTok{32166}\NormalTok{, }\DecValTok{40521}\NormalTok{, }\DecValTok{46002}\NormalTok{, }\DecValTok{50019}\NormalTok{, }\DecValTok{51848}\NormalTok{,}
+            \DecValTok{26079}\NormalTok{, }\DecValTok{22008}\NormalTok{, }\DecValTok{59837}\NormalTok{, }\DecValTok{47119}\NormalTok{, }\DecValTok{42699}\NormalTok{, }\DecValTok{49577}\NormalTok{,}\DecValTok{42977}\NormalTok{)}
+\NormalTok{sat }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1420}\NormalTok{, }\DecValTok{1245}\NormalTok{, }\DecValTok{1255}\NormalTok{, }\DecValTok{1375}\NormalTok{, }\DecValTok{1415}\NormalTok{, }\DecValTok{1210}\NormalTok{, }\DecValTok{1375}\NormalTok{,}
+         \DecValTok{1240}\NormalTok{, }\DecValTok{1490}\NormalTok{, }\DecValTok{1355}\NormalTok{, }\DecValTok{1250}\NormalTok{, }\DecValTok{1265}\NormalTok{, }\DecValTok{1295}\NormalTok{, }\DecValTok{1365}\NormalTok{)}
+\NormalTok{act }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{29}\NormalTok{, }\DecValTok{28}\NormalTok{, }\FloatTok{25.5}\NormalTok{, }\DecValTok{31}\NormalTok{, }\FloatTok{31.5}\NormalTok{, }\FloatTok{25.5}\NormalTok{, }\FloatTok{28.5}\NormalTok{, }\FloatTok{25.5}\NormalTok{, }
+         \DecValTok{33}\NormalTok{, }\DecValTok{29}\NormalTok{, }\FloatTok{27.5}\NormalTok{, }\DecValTok{28}\NormalTok{, }\FloatTok{27.5}\NormalTok{, }\DecValTok{29}\NormalTok{)}
+\NormalTok{accept }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.62}\NormalTok{, }\FloatTok{0.77}\NormalTok{, }\FloatTok{0.83}\NormalTok{, }\FloatTok{0.47}\NormalTok{, }\FloatTok{0.23}\NormalTok{, }\FloatTok{0.78}\NormalTok{, }\FloatTok{0.52}\NormalTok{, }
+            \FloatTok{0.8}\NormalTok{, }\FloatTok{0.08}\NormalTok{, }\FloatTok{0.52}\NormalTok{, }\FloatTok{0.56}\NormalTok{, }\FloatTok{0.58}\NormalTok{, }\FloatTok{0.6}\NormalTok{, }\FloatTok{0.52}\NormalTok{)}
+\NormalTok{hs\_gpa }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{3.79}\NormalTok{, }\FloatTok{3.62}\NormalTok{, }\FloatTok{3.61}\NormalTok{, }\FloatTok{3.75}\NormalTok{, }\FloatTok{3.82}\NormalTok{, }\FloatTok{3.62}\NormalTok{, }\FloatTok{3.75}\NormalTok{,}
+            \FloatTok{3.57}\NormalTok{,}\FloatTok{3.92}\NormalTok{, }\FloatTok{3.76}\NormalTok{, }\FloatTok{3.59}\NormalTok{, }\FloatTok{3.7}\NormalTok{, }\FloatTok{3.75}\NormalTok{, }\FloatTok{3.84}\NormalTok{)}
+
+\CommentTok{\# 1. Create Big Ten data frame}
+\NormalTok{big\_ten\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(school,region,wn\_rank,grad\_rate,}
+\NormalTok{                         enroll,sat,act,accept,hs\_gpa)}
+        
+\NormalTok{bt\_df\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"School"}\NormalTok{, }\StringTok{"Region"}\NormalTok{,}\StringTok{"Rank"}\NormalTok{, }\StringTok{"GR\_Rate"}\NormalTok{,}
+                 \StringTok{"Enroll"}\NormalTok{,}\StringTok{"SAT"}\NormalTok{,}\StringTok{"ACT"}\NormalTok{,}\StringTok{"Accept"}\NormalTok{,}\StringTok{"HS\_GPA"}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(big\_ten\_df) }\OtherTok{\textless{}{-}}\NormalTok{ bt\_df\_names}
+
+
+\CommentTok{\# 2. Run dim, head, tail, str and summary functions}
+\CommentTok{\#Dim : Dimension }
+\CommentTok{\#not really used because str include the information }
+\FunctionTok{dim}\NormalTok{(big\_ten\_df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14  9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#str includes information includes ; Data type, preview, dimension etc }
+\FunctionTok{str}\NormalTok{(big\_ten\_df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    14 obs. of  9 variables:
+##  $ School : chr  "Illinois" "Indiana" "Iowa" "Maryland" ...
+##  $ Region : chr  "MDW" "MDW" "MDW" "NE" ...
+##  $ Rank   : chr  "High" "Mod" "Mod" "Mod" ...
+##  $ GR_Rate: num  0.85 0.77 0.74 0.85 0.92 0.8 0.8 0.68 0.94 0.83 ...
+##  $ Enroll : num  48216 43710 32166 40521 46002 ...
+##  $ SAT    : num  1420 1245 1255 1375 1415 ...
+##  $ ACT    : num  29 28 25.5 31 31.5 25.5 28.5 25.5 33 29 ...
+##  $ Accept : num  0.62 0.77 0.83 0.47 0.23 0.78 0.52 0.8 0.08 0.52 ...
+##  $ HS_GPA : num  3.79 3.62 3.61 3.75 3.82 3.62 3.75 3.57 3.92 3.76 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Show top 4 of the data frame }
+\FunctionTok{head}\NormalTok{(big\_ten\_df,}\AttributeTok{n=}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     School Region Rank GR_Rate Enroll  SAT  ACT Accept HS_GPA
+## 1 Illinois    MDW High    0.85  48216 1420 29.0   0.62   3.79
+## 2  Indiana    MDW  Mod    0.77  43710 1245 28.0   0.77   3.62
+## 3     Iowa    MDW  Mod    0.74  32166 1255 25.5   0.83   3.61
+## 4 Maryland     NE  Mod    0.85  40521 1375 31.0   0.47   3.75
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Show the bottom 3 of the data frame }
+\FunctionTok{tail}\NormalTok{(big\_ten\_df, }\AttributeTok{n=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       School Region Rank GR_Rate Enroll  SAT  ACT Accept HS_GPA
+## 12    Purdue    MDW  Mod    0.78  42699 1265 28.0   0.58   3.70
+## 13   Rutgers     NE  Mod    0.80  49577 1295 27.5   0.60   3.75
+## 14 Wisconsin    MDW High    0.87  42977 1365 29.0   0.52   3.84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#summarize }
+\CommentTok{\#with generic statistics}
+\CommentTok{\#more useful for numerical than character info }
+
+\FunctionTok{summary}\NormalTok{(big\_ten\_df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     School             Region              Rank              GR_Rate     
+##  Length:14          Length:14          Length:14          Min.   :0.680  
+##  Class :character   Class :character   Class :character   1st Qu.:0.785  
+##  Mode  :character   Mode  :character   Mode  :character   Median :0.815  
+##                                                           Mean   :0.820  
+##                                                           3rd Qu.:0.850  
+##                                                           Max.   :0.940  
+##      Enroll           SAT            ACT            Accept      
+##  Min.   :22008   Min.   :1210   Min.   :25.50   Min.   :0.0800  
+##  1st Qu.:41066   1st Qu.:1251   1st Qu.:27.50   1st Qu.:0.5200  
+##  Median :44856   Median :1325   Median :28.25   Median :0.5700  
+##  Mean   :43056   Mean   :1325   Mean   :28.46   Mean   :0.5629  
+##  3rd Qu.:49237   3rd Qu.:1375   3rd Qu.:29.00   3rd Qu.:0.7325  
+##  Max.   :59837   Max.   :1490   Max.   :33.00   Max.   :0.8300  
+##      HS_GPA     
+##  Min.   :3.570  
+##  1st Qu.:3.620  
+##  Median :3.750  
+##  Mean   :3.721  
+##  3rd Qu.:3.783  
+##  Max.   :3.920
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ******************************************************************************}
+\CommentTok{\# *** Exercise 02: Big Ten Data Frame Access}
+\CommentTok{\# Pick a school, access and display its name, graduation rate and ACT score.}
+\CommentTok{\# Display the school column many different ways. For each display show the type }
+\CommentTok{\# of the resulting object. Force the non{-}data frame objects into data frame type.}
+\CommentTok{\# Display school, enrollment, acceptance and high school GPA columns in a few}
+\CommentTok{\# different ways making sure you always have a data frame as a result.}
+\CommentTok{\# ******************************************************************************}
+\CommentTok{\# 3. Wisconsin with graduation rate and ACT score}
+\DocumentationTok{\#\#\#Manually finding}
+\DocumentationTok{\#\#\# This would hard to count manually in big data }
+\NormalTok{big\_ten\_df[}\DecValTok{14}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       School GR_Rate ACT
+## 14 Wisconsin    0.87  29
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#We can use the name of the variable instead }
+\DocumentationTok{\#\#\#It is case sensitive}
+\NormalTok{big\_ten\_df[}\DecValTok{14}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\StringTok{"School"}\NormalTok{,}\StringTok{"GR\_Rate"}\NormalTok{,}\StringTok{"ACT"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       School GR_Rate ACT
+## 14 Wisconsin    0.87  29
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{big\_ten\_df}\SpecialCharTok{$}\NormalTok{School}\SpecialCharTok{==}\StringTok{"Wisconsin"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{big\_ten\_df[big\_ten\_df}\SpecialCharTok{$}\NormalTok{School}\SpecialCharTok{==}\StringTok{"Wisconsin"}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       School GR_Rate ACT
+## 14 Wisconsin    0.87  29
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Wisconsin and Minnesota with graduation rate and ACT score}
+\NormalTok{big\_ten\_df[big\_ten\_df}\SpecialCharTok{$}\NormalTok{School}\SpecialCharTok{==}\StringTok{"Wisconsin"} \SpecialCharTok{|}\NormalTok{  big\_ten\_df}\SpecialCharTok{$}\NormalTok{School}\SpecialCharTok{==}\StringTok{"Minnesota"}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       School GR_Rate  ACT
+## 7  Minnesota    0.80 28.5
+## 14 Wisconsin    0.87 29.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Assign the condition into the variable }
+\CommentTok{\#Wisconsin and minnesota graduated act rate}
+\CommentTok{\#This will be our logical vector }
+\NormalTok{WI\_MN\_gr\_rate\_act}\OtherTok{\textless{}{-}}\NormalTok{big\_ten\_df}\SpecialCharTok{$}\NormalTok{School}\SpecialCharTok{==}\StringTok{"Wisconsin"} \SpecialCharTok{|}\NormalTok{  big\_ten\_df}\SpecialCharTok{$}\NormalTok{School}\SpecialCharTok{==}\StringTok{"Minnesota"}
+\NormalTok{big\_ten\_df[WI\_MN\_gr\_rate\_act,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       School GR_Rate  ACT
+## 7  Minnesota    0.80 28.5
+## 14 Wisconsin    0.87 29.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# School column displayed many different ways}
+\DocumentationTok{\#\#\# 4. Using numerical column reference}
+\NormalTok{big\_ten\_df[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            School
+## 1        Illinois
+## 2         Indiana
+## 3            Iowa
+## 4        Maryland
+## 5        Michigan
+## 6  Michigan State
+## 7       Minnesota
+## 8        Nebraska
+## 9    Northwestern
+## 10     Ohio State
+## 11     Penn State
+## 12         Purdue
+## 13        Rutgers
+## 14      Wisconsin
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{big\_ten\_df[}\DecValTok{1}\NormalTok{]     }\CommentTok{\# Data frame}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            School
+## 1        Illinois
+## 2         Indiana
+## 3            Iowa
+## 4        Maryland
+## 5        Michigan
+## 6  Michigan State
+## 7       Minnesota
+## 8        Nebraska
+## 9    Northwestern
+## 10     Ohio State
+## 11     Penn State
+## 12         Purdue
+## 13        Rutgers
+## 14      Wisconsin
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(big\_ten\_df[}\DecValTok{1}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{big\_ten\_df[,}\DecValTok{1}\NormalTok{]    }\CommentTok{\# Character vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Illinois"       "Indiana"        "Iowa"           "Maryland"      
+##  [5] "Michigan"       "Michigan State" "Minnesota"      "Nebraska"      
+##  [9] "Northwestern"   "Ohio State"     "Penn State"     "Purdue"        
+## [13] "Rutgers"        "Wisconsin"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(big\_ten\_df[,}\DecValTok{1}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 5. Using the given column name with $ and []}
+
+\NormalTok{big\_ten\_df[}\StringTok{"School"}\NormalTok{]                      }\CommentTok{\# Data frame}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            School
+## 1        Illinois
+## 2         Indiana
+## 3            Iowa
+## 4        Maryland
+## 5        Michigan
+## 6  Michigan State
+## 7       Minnesota
+## 8        Nebraska
+## 9    Northwestern
+## 10     Ohio State
+## 11     Penn State
+## 12         Purdue
+## 13        Rutgers
+## 14      Wisconsin
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(big\_ten\_df[}\StringTok{"School"}\NormalTok{])                        }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{big\_ten\_df[,}\StringTok{"School"}\NormalTok{]                       }\CommentTok{\# Character vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Illinois"       "Indiana"        "Iowa"           "Maryland"      
+##  [5] "Michigan"       "Michigan State" "Minnesota"      "Nebraska"      
+##  [9] "Northwestern"   "Ohio State"     "Penn State"     "Purdue"        
+## [13] "Rutgers"        "Wisconsin"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(big\_ten\_df[,}\StringTok{"School"}\NormalTok{] )              }\CommentTok{\# Character vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(big\_ten\_df}\SpecialCharTok{$}\NormalTok{School )     }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sch}\OtherTok{\textless{}{-}}\FunctionTok{as.data.frame}\NormalTok{(big\_ten\_df}\SpecialCharTok{$}\NormalTok{School)}
+\NormalTok{sch}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    big_ten_df$School
+## 1           Illinois
+## 2            Indiana
+## 3               Iowa
+## 4           Maryland
+## 5           Michigan
+## 6     Michigan State
+## 7          Minnesota
+## 8           Nebraska
+## 9       Northwestern
+## 10        Ohio State
+## 11        Penn State
+## 12            Purdue
+## 13           Rutgers
+## 14         Wisconsin
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 6. Displaying school, enrollment, acceptance and high school GPA}
+
+\NormalTok{big\_ten\_df[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            School Enroll Accept HS_GPA
+## 1        Illinois  48216   0.62   3.79
+## 2         Indiana  43710   0.77   3.62
+## 3            Iowa  32166   0.83   3.61
+## 4        Maryland  40521   0.47   3.75
+## 5        Michigan  46002   0.23   3.82
+## 6  Michigan State  50019   0.78   3.62
+## 7       Minnesota  51848   0.52   3.75
+## 8        Nebraska  26079   0.80   3.57
+## 9    Northwestern  22008   0.08   3.92
+## 10     Ohio State  59837   0.52   3.76
+## 11     Penn State  47119   0.56   3.59
+## 12         Purdue  42699   0.58   3.70
+## 13        Rutgers  49577   0.60   3.75
+## 14      Wisconsin  42977   0.52   3.84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data.frame}\NormalTok{(big\_ten\_df}\SpecialCharTok{$}\NormalTok{School,big\_ten\_df}\SpecialCharTok{$}\NormalTok{Enroll,big\_ten\_df}\SpecialCharTok{$}\NormalTok{Accept, big\_ten\_df}\SpecialCharTok{$}\NormalTok{HS\_GPA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    big_ten_df.School big_ten_df.Enroll big_ten_df.Accept big_ten_df.HS_GPA
+## 1           Illinois             48216              0.62              3.79
+## 2            Indiana             43710              0.77              3.62
+## 3               Iowa             32166              0.83              3.61
+## 4           Maryland             40521              0.47              3.75
+## 5           Michigan             46002              0.23              3.82
+## 6     Michigan State             50019              0.78              3.62
+## 7          Minnesota             51848              0.52              3.75
+## 8           Nebraska             26079              0.80              3.57
+## 9       Northwestern             22008              0.08              3.92
+## 10        Ohio State             59837              0.52              3.76
+## 11        Penn State             47119              0.56              3.59
+## 12            Purdue             42699              0.58              3.70
+## 13           Rutgers             49577              0.60              3.75
+## 14         Wisconsin             42977              0.52              3.84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#7 Add a column to the big\_ten\_df data frame, named quality, defined }
+\CommentTok{\# as the average of normalized SAT \& ACT scores, rounded to 2 decimals. }
+\DocumentationTok{\#\#\# Using other code editors}
+\NormalTok{big\_ten\_df}\SpecialCharTok{$}\NormalTok{Quality }\OtherTok{\textless{}{-}}\FunctionTok{round}\NormalTok{((big\_ten\_df}\SpecialCharTok{$}\NormalTok{SAT}\SpecialCharTok{/}\DecValTok{1600}\SpecialCharTok{+}\NormalTok{big\_ten\_df}\SpecialCharTok{$}\NormalTok{ACT}\SpecialCharTok{/}\DecValTok{36}\NormalTok{)}\SpecialCharTok{/}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\NormalTok{big\_ten\_df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            School Region  Rank GR_Rate Enroll  SAT  ACT Accept HS_GPA Quality
+## 1        Illinois    MDW  High    0.85  48216 1420 29.0   0.62   3.79    0.85
+## 2         Indiana    MDW   Mod    0.77  43710 1245 28.0   0.77   3.62    0.78
+## 3            Iowa    MDW   Mod    0.74  32166 1255 25.5   0.83   3.61    0.75
+## 4        Maryland     NE   Mod    0.85  40521 1375 31.0   0.47   3.75    0.86
+## 5        Michigan    MDW  High    0.92  46002 1415 31.5   0.23   3.82    0.88
+## 6  Michigan State    MDW   Mod    0.80  50019 1210 25.5   0.78   3.62    0.73
+## 7       Minnesota    MDW   Mod    0.80  51848 1375 28.5   0.52   3.75    0.83
+## 8        Nebraska    MDW   Low    0.68  26079 1240 25.5   0.80   3.57    0.74
+## 9    Northwestern    MDW Top10    0.94  22008 1490 33.0   0.08   3.92    0.92
+## 10     Ohio State    MDW   Mod    0.83  59837 1355 29.0   0.52   3.76    0.83
+## 11     Penn State     NE   Mod    0.85  47119 1250 27.5   0.56   3.59    0.77
+## 12         Purdue    MDW   Mod    0.78  42699 1265 28.0   0.58   3.70    0.78
+## 13        Rutgers     NE   Mod    0.80  49577 1295 27.5   0.60   3.75    0.79
+## 14      Wisconsin    MDW  High    0.87  42977 1365 29.0   0.52   3.84    0.83
+\end{verbatim}
+
+\end{document}
